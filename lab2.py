@@ -8,7 +8,7 @@ from streamlit_folium import folium_static
 import folium
 
 API_KEY = "131789df-fd43-45ec-b9b8-4ade681d23cc"
-
+#TEST
 @st.cache_data
 def map_creator(latitude, longitude):
     # center on the station
