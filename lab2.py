@@ -117,7 +117,7 @@ if preference == "Country/State/City":
 
             tempC = airQualityData["data"]["current"]["weather"]["tp"]
             tempF = (tempC * 1.8) + 32
-            st.info(f"Tempature in miami is {tempC}°C/{tempF}°F")
+            st.info(f"Temperature in miami is {tempC}°C/{tempF}°F")
 
             humidity = airQualityData["data"]["current"]["weather"]["hu"]
             st.info(f"Humidity is {humidity}%")
@@ -142,7 +142,7 @@ if preference == "Nearest City":
 
     tempC = airQualityData["data"]["current"]["weather"]["tp"]
     tempF = (tempC * 1.8) + 32
-    st.info(f"Tempature in miami is {tempC}°C/{tempF}°F")
+    st.info(f"Temperature in miami is {tempC}°C/{tempF}°F")
 
     humidity = airQualityData["data"]["current"]["weather"]["hu"]
     st.info(f"Humidity is {humidity}%")
@@ -195,7 +195,7 @@ if preference == "Latitude/Longitude":
 
         tempC = airQualityData["data"]["current"]["weather"]["tp"]
         tempF = (tempC * 1.8) + 32
-        st.info(f"Tempature in miami is {tempC}°C/{tempF}°F")
+        st.info(f"Temperature in miami is {tempC}°C/{tempF}°F")
 
         humidity = airQualityData["data"]["current"]["weather"]["hu"]
         st.info(f"Humidity is {humidity}%")
