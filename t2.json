@@ -1,0 +1,33 @@
+{
+  "status": "success",
+  "data": {
+    "city": "Chapaev",
+    "state": "Batys Qazaqstan",
+    "country": "Kazakhstan",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        51.16667,
+        50.2
+      ]
+    },
+    "current": {
+      "pollution": {
+        "ts": "2023-03-30T18:00:00.000Z",
+        "aqius": 21,
+        "mainus": "p2",
+        "aqicn": 7,
+        "maincn": "p2"
+      },
+      "weather": {
+        "ts": "2023-03-30T20:00:00.000Z",
+        "tp": 12,
+        "pr": 1008,
+        "hu": 66,
+        "ws": 8.69,
+        "wd": 89,
+        "ic": "04n"
+      }
+    }
+  }
+}

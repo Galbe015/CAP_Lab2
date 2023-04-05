@@ -1,0 +1,33 @@
+{
+  "status": "success",
+  "data": {
+    "city": "Miami",
+    "state": "Florida",
+    "country": "USA",
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -80.2156,
+        25.7947
+      ]
+    },
+    "current": {
+      "pollution": {
+        "ts": "2023-03-20T16:00:00.000Z",
+        "aqius": 31,
+        "mainus": "p2",
+        "aqicn": 15,
+        "maincn": "p1"
+      },
+      "weather": {
+        "ts": "2023-03-20T16:00:00.000Z",
+        "tp": 19,
+        "pr": 1021,
+        "hu": 71,
+        "ws": 6.17,
+        "wd": 340,
+        "ic": "04d"
+      }
+    }
+  }
+}
