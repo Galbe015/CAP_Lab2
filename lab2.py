@@ -67,7 +67,7 @@ if preference == "Country/State/City":
 
     countryNames.insert(0, ' ')
 
-    print(countryNames)
+    #print(countryNames)
 
     country = st.selectbox("Select a Country", options=(countryNames))
 
