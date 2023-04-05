@@ -55,15 +55,15 @@ preference = st.sidebar.selectbox("How would you like to choose location",
                                   options=["", "Country/State/City", "Nearest City", "Latitude/Longitude"])
 
 if preference == "Country/State/City":
-    countrys = requests.get(f'http://api.airvisual.com/v2/countries?key={API_KEY}').json()
+    countries = requests.get(f'http://api.airvisual.com/v2/countries?key={API_KEY}').json()
 
-    while countrys['status'] == "fail":
+    while countries['status'] == "fail":
         warning = st.warning("Too Many Requests please wait")
         warning.empty()
         time.sleep(10)
-        countrys = requests.get(f'http://api.airvisual.com/v2/countries?key={API_KEY}').json()
+        countries = requests.get(f'http://api.airvisual.com/v2/countries?key={API_KEY}').json()
 
-    countryNames = (list(map(lambda c: c['country'], countrys['data'])))
+    countryNames = (list(map(lambda c: c['country'], countries['data'])))
 
     countryNames.insert(0, ' ')
 
