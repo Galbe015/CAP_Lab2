@@ -20,6 +20,27 @@ def map_creator(latitude, longitude):
     # call to render Folium map in Streamlit
     folium_static(m)
 
+@st.cache_data
+def generate_list_of_countries():
+    countries_url = f"https://api.airvisual.com/v2/countries?key={API_KEY}"
+    countries_dict = requests.get(countries_url).json()
+    # st.write(countries_dict)
+    return countries_dict
+
+@st.cache_data
+def generate_list_of_states(country_selected):
+    states_url = f"https://api.airvisual.com/v2/states?country={country_selected}&key={API_KEY}"
+    states_dict = requests.get(states_url).json()
+    # st.write(states_dict)
+    return states_dict
+
+@st.cache_data
+def generate_list_of_cities(state_selected, country_selected):
+    cities_url = f"https://api.airvisual.com/v2/cities?state={state_selected}&country={country_selected}&key={API_KEY}"
+    cities_dict = requests.get(cities_url).json()
+    # st.write(cities_dict)
+    return cities_dict
+
 
 def save_to_file(data, file_name):
     with open(file_name, "w") as write_file:
@@ -30,10 +51,10 @@ def save_to_file(data, file_name):
 st.title("Lab 2")
 st.header("Air Quality Index")
 
-prefrence = st.sidebar.selectbox("How would you like to choose location",
-                                 options=["", "Country/State/City", "Nearest City", "Latitude/Longitude"])
+preference = st.sidebar.selectbox("How would you like to choose location",
+                                  options=["", "Country/State/City", "Nearest City", "Latitude/Longitude"])
 
-if prefrence == "Country/State/City":
+if preference == "Country/State/City":
     countrys = requests.get(f'http://api.airvisual.com/v2/countries?key={API_KEY}').json()
 
     while countrys['status'] == "fail":
@@ -104,7 +125,7 @@ if prefrence == "Country/State/City":
             airQuality = airQualityData["data"]["current"]["pollution"]["aqius"]
             st.info(f"The air quality index is currently {airQuality}")
 
-if prefrence == "Nearest City":
+if preference == "Nearest City":
     airQualityData = requests.get(f"http://api.airvisual.com/v2/nearest_city?key={API_KEY}").json()
 
     while airQualityData['status'] == "fail":
@@ -129,7 +150,7 @@ if prefrence == "Nearest City":
     airQuality = airQualityData["data"]["current"]["pollution"]["aqius"]
     st.info(f"The air quality index is currently {airQuality}")
 
-if prefrence == "Latitude/Longitude":
+if preference == "Latitude/Longitude":
 
    # while (True):
     longitude = st.number_input("Enter Your Longitude")
