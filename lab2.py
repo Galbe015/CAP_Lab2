@@ -86,17 +86,17 @@ if preference == "Country/State/City":
 
         if state != ' ':
 
-            citys = requests.get(
+            cities = requests.get(
                 f"http://api.airvisual.com/v2/cities?state={state}&country={country}&key={API_KEY}").json()
 
-            while citys['status'] == "fail":
+            while cities['status'] == "fail":
                 warning = st.warning("Too Many Requests please wait")
                 time.sleep(10)
                 warning.empty()
-                citys = requests.get(
+                cities = requests.get(
                     f"http://api.airvisual.com/v2/cities?state={state}&country={country}&key={API_KEY}").json()
 
-            cityNames = [c['city'] for c in citys['data']]
+            cityNames = [c['city'] for c in cities['data']]
             city = st.selectbox("Select a City", options=cityNames)
 
             airQualityData = requests.get(
